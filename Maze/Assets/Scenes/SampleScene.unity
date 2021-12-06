@@ -156,9 +156,11 @@ MonoBehaviour:
   width: 20
   height: 20
   total_ground: 0
+  difficulty: 0.99
   wall: {fileID: 1958891013373530, guid: 50c2b0c5c4d64eb499af91a6741150ea, type: 3}
-  player: {fileID: 8796620603529523590, guid: f5df3b80801a97a4bbac8c1386dafc02, type: 3}
+  player: {fileID: 9101570834644303786, guid: f5df3b80801a97a4bbac8c1386dafc02, type: 3}
   ground: {fileID: 8746953245528027688, guid: 269bb9160cdafbe4ba6e55863fa6d63f, type: 3}
+  cam: {fileID: 0}
 --- !u!4 &698753326
 Transform:
   m_ObjectHideFlags: 0
