@@ -39,5 +39,8 @@ public class PlayerController : MonoBehaviour
         {
             character.Move(Vector3.zero, false, false);
         }
+        var speed = agent.speed;
+		speed = speed + (float)0.0001;
+		agent.speed = speed;
     }
 }

@@ -8,13 +8,13 @@ public class LevelGenerator : MonoBehaviour {
 	public int width = 10;
 	public int height = 10;
 	public int total_ground = 0;
+	public float difficulty = .99f;
+	private bool playerSpawned = false;
 
 	public GameObject wall;
 	public GameObject player;
 	public GameObject ground;
 	public Camera cam;
-
-	private bool playerSpawned = false;
 
 	// Use this for initialization
 	void Start () {
@@ -37,7 +37,7 @@ public class LevelGenerator : MonoBehaviour {
 			total_ground++;
 		}
 		var cam_pos = cam.transform.position;
-		cam_pos.x = cam_pos.x + (float)(0.01 + 0.01 * total_ground/5);
+		cam_pos.x = cam_pos.x + (float)(0.01 + 0.001 * total_ground);
 		cam.transform.position = cam_pos;
 
 	}
@@ -45,13 +45,14 @@ public class LevelGenerator : MonoBehaviour {
 	// Create a grid based level
 	void GenerateLevel()
 	{
+		difficulty = difficulty - total_ground/100;
 		// Loop over the grid
 		for (int x = total_ground*22; x <= width + (total_ground*22); x+=2)
 		{
 			for (int y = 0; y <= height; y+=2)
 			{
 				// Should we place a wall?
-				if (Random.value > .99f - (total_ground)/100)
+				if (Random.value > .99f - total_ground/100)
 				{
 					// Spawn a wall
 					Vector3 pos = new Vector3(x - width / 2f, 1.6f, y - height / 2f);
