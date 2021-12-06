@@ -35,6 +35,10 @@ public class LevelGenerator : MonoBehaviour {
 			GenerateLevel();
 			surface.BuildNavMesh();
 			total_ground++;
+			if (difficulty < 0.7f)
+			{
+				difficulty = difficulty - 0.01f;
+			}
 		}
 		var cam_pos = cam.transform.position;
 		cam_pos.x = cam_pos.x + (float)(0.01 + 0.001 * total_ground);
@@ -45,14 +49,13 @@ public class LevelGenerator : MonoBehaviour {
 	// Create a grid based level
 	void GenerateLevel()
 	{
-		difficulty = difficulty - total_ground/100;
 		// Loop over the grid
 		for (int x = total_ground*22; x <= width + (total_ground*22); x+=2)
 		{
 			for (int y = 0; y <= height; y+=2)
 			{
 				// Should we place a wall?
-				if (Random.value > .99f - total_ground/100)
+				if (Random.value > difficulty)
 				{
 					// Spawn a wall
 					Vector3 pos = new Vector3(x - width / 2f, 1.6f, y - height / 2f);
