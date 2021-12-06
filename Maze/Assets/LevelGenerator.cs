@@ -35,7 +35,7 @@ public class LevelGenerator : MonoBehaviour {
 			GenerateLevel();
 			surface.BuildNavMesh();
 			total_ground++;
-			if (difficulty < 0.7f)
+			if (difficulty > 0.7f)
 			{
 				difficulty = difficulty - 0.01f;
 			}
