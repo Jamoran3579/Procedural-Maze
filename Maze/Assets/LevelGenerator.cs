@@ -43,10 +43,10 @@ public class LevelGenerator : MonoBehaviour {
 			for (int y = 0; y <= height; y+=2)
 			{
 				// Should we place a wall?
-				if (Random.value > .99f)
+				if (Random.value > .90f)
 				{
 					// Spawn a wall
-					Vector3 pos = new Vector3(x - width / 2f, 1f, y - height / 2f);
+					Vector3 pos = new Vector3(x - width / 2f, 1.5f, y - height / 2f);
 					Instantiate(wall, pos, Quaternion.identity, transform);
 				} else if (!playerSpawned) // Should we spawn a player?
 				{
