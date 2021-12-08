@@ -22,6 +22,9 @@ public class LevelGenerator : MonoBehaviour {
 	private bool playerSpawned = false;
 	public bool gameover = false;
 
+	//Creating all of the public objects. Wall refers to the wall prefab, player refers to the player prefab and ground refers to
+	//the ground prefab. Camera refers to the main camera and this will be attached in the start method. Score and result are
+	//Text boxes attached to the canvas the player can see
 	public GameObject wall;
 	public GameObject player;
 	public GameObject ground;
@@ -31,19 +34,28 @@ public class LevelGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//This function starts the generation of walls
 		GenerateLevel();
+
+		//This attaches the player object which has been spawned to te player GameObject and the main camera GameObject
+		//to the Camera object
 		player = GameObject.FindGameObjectWithTag("Player");
 		cam = Camera.main;
 
+		//This builds the NavMesh that the agent is able to walk on, and then adds one to the total ground spawned as one 
+		//already exists at the beginning of the game
 		surface.BuildNavMesh();
 		total_ground++;
 	}
 
 	void Update () {
+		//This checks to see if the game has ended, if so, it goes into an area of the code that does nothing to stop the movement
+		//of the camera and to stop any other processes occuring
 		if (gameover)
 		{
 
 		}
+		//
 		else
 		{
 			var current_pos = player.transform.position;
