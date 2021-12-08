@@ -5,11 +5,16 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-
+//Creation of the Level generator class
 public class LevelGenerator : MonoBehaviour {
 
+	//Creating a new NavMeshSurface
 	public NavMeshSurface surface;
 
+	//All of the public variables, width and height control the size of the walls, total ground is the total number of ground
+	//Prefabs instansiated so far, difficulty controls the difficulty of the game between 0.99 and 0.75. The lower the number, 
+	//the more difficult the game, player spawned determines if the player has been spawned yet, gameover tracks whether the 
+	//player has lost the game yet or not
 	public int width = 10;
 	public int height = 10;
 	public int total_ground = 0;
