@@ -88,9 +88,12 @@ public class LevelGenerator : MonoBehaviour {
 			//We then update the players score to allign with the total ground generated - 2, as the game starts with 2 ground already existing
 			score.text = "Score: " + (total_ground - 2).ToString();
 
-			
+			//Here we check to see how far the player is behind the camera, once the player is more than 14 on the x axis behind, they can no longer
+			//be seen. This is considered game over
 			if (current_pos.x < cam_pos.x - 14)
         	{
+				//We update the result text to say game over, the applicartion is then quit, and the gameover variable is set to true, stopping all
+				//processes within the game
 				result.text = "Game Over\nYou scored: " + (total_ground - 2).ToString();
         	    Application.Quit();
 				gameover = true;
