@@ -101,23 +101,25 @@ public class LevelGenerator : MonoBehaviour {
 		}
 	}
 	
-	// Create a grid based level
+	//This is the function where I build the level aka walls
 	void GenerateLevel()
 	{
-		// Loop over the grid
+		// Loop over the grid that needs walls to be generated, this is done using the total ground variable to find how far away from the origin we are
 		for (int x = total_ground*22; x <= width + (total_ground*22); x+=2)
 		{
+			//This is part of looping over the grid, but as height doesn't change, this does not depend on the number of grounds instantiated so far
 			for (int y = 0; y <= height; y+=2)
 			{
-				// Should we place a wall?
+				// This checks to see if a wall should be placed based on the difficulty. As the random value has a higher chance of being above the 
+				//difficulty if it is smaller, the smaller the difficulty number, the harder the level
 				if (Random.value > difficulty)
 				{
-					// Spawn a wall
+					// Instanciate a wall at the current width and height
 					Vector3 pos = new Vector3(x - width / 2f, 1.6f, y - height / 2f);
 					Instantiate(wall, pos, Quaternion.identity, transform);
-				} else if (!playerSpawned) // Should we spawn a player?
+				} else if (!playerSpawned) // Check to see if a player is spawned, if not, spawn one
 				{
-					// Spawn the player
+					// Instantiate player and set bool check to true
 					Vector3 pos = new Vector3(x - width / 2f, 1.25f, y - height / 2f);
 					Instantiate(player, pos, Quaternion.identity);
 					playerSpawned = true;
