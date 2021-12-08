@@ -55,17 +55,25 @@ public class LevelGenerator : MonoBehaviour {
 		{
 
 		}
-		//
+		//If the game hasn't ended, it will enter here to allow the application to run normally
 		else
 		{
+			//This grabs the position of the player GameObject
 			var current_pos = player.transform.position;
+
+			//This is a check to see if the current position of the player requires the spawning of a new platform.
 			if (current_pos.x >= ((total_ground-1)*22)-11)
 			{
+				//If so, we get the position to spawn the new ground based on the total number of ground spawned so far. We then instantiate this new
+				//piece of ground, and then build the walls on this piece of ground. Then we build a new NavMesh that the agent can walk on, and increase
+				//the gound generated count by one
 				Vector3 pos = new Vector3((total_ground*22f), 0f, 0f);
 				Instantiate(ground, pos, Quaternion.identity, transform);
 				GenerateLevel();
 				surface.BuildNavMesh();
 				total_ground++;
+
+				//Next we check the difficulty and if greater than 0.75, we lower it (Lower number means higher difficulty)
 				if (difficulty > 0.75f)
 				{
 					difficulty = difficulty - 0.01f;
