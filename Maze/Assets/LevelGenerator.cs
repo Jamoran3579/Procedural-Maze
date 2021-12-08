@@ -1,6 +1,10 @@
+/*
+Imports for what libraries are going to be used within the code
+*/
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+
 
 public class LevelGenerator : MonoBehaviour {
 
