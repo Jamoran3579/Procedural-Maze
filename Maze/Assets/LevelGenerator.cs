@@ -79,11 +79,16 @@ public class LevelGenerator : MonoBehaviour {
 					difficulty = difficulty - 0.01f;
 				}
 			}
+			//We want the camera to move, so next we get the position of the camera. The game runs along the x axis so we update the cameras
+			//x position based on how much ground has been generated, aka. the difficulty. The more ground, the more we move the camera
 			var cam_pos = cam.transform.position;
 			cam_pos.x = cam_pos.x + (float)(0.02 + 0.001 * total_ground);
 			cam.transform.position = cam_pos;
+
+			//We then update the players score to allign with the total ground generated - 2, as the game starts with 2 ground already existing
 			score.text = "Score: " + (total_ground - 2).ToString();
 
+			
 			if (current_pos.x < cam_pos.x - 14)
         	{
 				result.text = "Game Over\nYou scored: " + (total_ground - 2).ToString();
