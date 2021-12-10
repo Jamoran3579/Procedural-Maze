@@ -11,6 +11,7 @@ Below is a breakdown of all scripts and where the code came from
 | PlayerController.cs | Self written except line 53-60, this was expanded upon from https://www.youtube.com/channel/UCYbK_tjZ2OrIZFBvU6CCMiA |
 | LevelGenerator.cs | Self witten |
 | Lofi man and animations | Same as the lines above, this was taken from https://www.youtube.com/channel/UCYbK_tjZ2OrIZFBvU6CCMiA and expanded upon |
+| Shader for walls | Taken from https://github.com/skooter500 and applied to the walls prefab|
 | All other assets | Self Made |
 
 
