@@ -4,6 +4,16 @@ This Repo is for my games engines 1 project
 This is a game that will procedurally generate a maze as the player goes on, allowing the user to navigate a randomly generated maze, accumulating score the longer they survive. The complexity of the maze increases overtime, as well as increasing the speed of the camera and the player. Once the player falls out of sight of the camera, the game is over. The game is played by clicking a location with the mouse that the player will travel to using automated path finding
 
 
+Below is a breakdown of all scripts and where the code came from
+
+| Class/asset | Source |
+|-----------|-----------|
+| PlayerController.cs | Self written except line 53-60, this was expanded upon from https://www.youtube.com/channel/UCYbK_tjZ2OrIZFBvU6CCMiA |
+| LevelGenerator.cs | Self witten |
+| Lofi man and animations | Same as the lines above, this was taken from https://www.youtube.com/channel/UCYbK_tjZ2OrIZFBvU6CCMiA and expanded upon |
+| All other assets | Self Made |
+
+
 When the user starts the game, it will generate a random set of walls that the user has to navigate
 
 ![Game_start](https://user-images.githubusercontent.com/43176942/145604185-56fa8e3a-48a4-4abe-9a85-a4dfd533cf79.PNG)
